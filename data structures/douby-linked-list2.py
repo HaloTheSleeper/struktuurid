@@ -42,8 +42,8 @@ class dl_list:
         last.next = newNode
         return
 
-
     def printList(self):
+        print('#########')
         node = self.head
         while (node is not None):
             print(node.data)
@@ -51,7 +51,6 @@ class dl_list:
     
 
 list = dl_list()
-list.append(100)
 list.push(1)
 list.push(2)
 list.push(3)

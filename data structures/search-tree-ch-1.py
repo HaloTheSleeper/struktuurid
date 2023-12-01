@@ -7,8 +7,8 @@ class Node:
 def printTree(rootNode):
     if rootNode is not None:
        printTree(rootNode.left)
-       print(rootNode)
        printTree(rootNode.right)
+       print(rootNode.value)
 
 def checkHelper(node, baseValue, Subtree):
     #declaring the smallestValue again
@@ -63,5 +63,7 @@ if __name__ == '__main__':
     #left subtree
     root.left = Node(3)
     root.left.right = Node(4)
+
+    printTree(root)
 
     print(checkIfBSTIsBalanced(root))

@@ -38,8 +38,8 @@ class SkipList(object):
     # create random level for node
     def randomLevel(self):
         lvl = 0
-        while random.random()<self.P and \
-              lvl<self.MAXLVL:lvl += 1
+        while random.random()<self.P and lvl<self.MAXLVL:
+            lvl += 1
         return lvl
  
     # insert given key in skip list
@@ -56,8 +56,7 @@ class SkipList(object):
         move one level down and continue search
         '''
         for i in range(self.level, -1, -1):
-            while current.forward[i] and \
-                  current.forward[i].key < key:
+            while current.forward[i] and current.forward[i].key < key:
                 current = current.forward[i]
             update[i] = current
  

@@ -43,7 +43,7 @@ if __name__ == '__main__':
     root = None
   
     root = None
-    keys = [50, 30, 20, 40, 70, 60, 80]
+    keys = [50, 70, 30, 20, 40, 60, 80]
   
     # Creating the BST
     for key in keys:

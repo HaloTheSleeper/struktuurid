@@ -30,7 +30,7 @@ class doubly_linked_list:
     # Define the append method to add elements at the end
     def append(self, NewVal):
         NewNode = Node(NewVal)
-        NewNode.next = None
+        #NewNode.next = None
         if self.head is None:
             NewNode.prev = None
             self.head = NewNode
@@ -41,6 +41,21 @@ class doubly_linked_list:
         last.next = NewNode
         NewNode.prev = last
         return
+    
+    #reverse list
+    def reverse(self):
+        temp = None
+        current = self.head
+
+        # Swap next and prev for all nodes of dll
+        while current is not None:
+            temp = current.prev
+            current.prev = current.next
+            current.next = temp
+            current = current.prev
+
+        if temp is not None:
+            self.head = temp.prev
     
     # Print the Doubly Linked list		
     def listprint(self, node):
