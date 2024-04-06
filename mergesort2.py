@@ -12,7 +12,7 @@ def mergeSort(arr):
 
     i = j = k = 0
 
-    while i < len(L) and j < len(R):
+    while i < len(L) and j < len(R): 
         if L[i] >= R[j]:
             arr[k] = R[j]
             j += 1

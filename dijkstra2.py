@@ -10,6 +10,10 @@ class MinHeap():
         self.positions = []
 
     def swapNodes(self, key1, key2):
+        #switch positions
+        self.positions[self.array[key1][0]] = key2
+        self.positions[self.array[key2][0]] = key1
+        
         node = self.array[key1]
         self.array[key1] = self.array[key2]
         self.array[key2] = node
@@ -29,8 +33,6 @@ class MinHeap():
 
         #correct the minHeap if needed
         while (i > 0 and self.array[i][1] < self.array[(i - 1) // 2][1]):
-            self.positions[ self.array[i][0] ] = (i-1)//2
-            self.positions[ self.array[(i-1)//2][0] ] = i
             self.swapNodes(i, (i - 1) // 2)
 
             #move on to the parent node (the one that we moved up)
@@ -43,14 +45,12 @@ class MinHeap():
 
         if (left < self.size and self.array[left][1] < self.array[smallest][1]): 
             smallest = left
-        
         if (right < self.size and self.array[right][1] < self.array[smallest][1]):
             smallest = right
         
+        
         #if one of the children has a smaller path then swap it with his parent and start a recursion
         if smallest != idx:
-            self.positions[self.array[smallest][0]] = idx
-            self.positions[self.array[idx][0]] = smallest
 
             self.swapNodes(idx, smallest)
             self.minHeapify(smallest)
@@ -90,7 +90,7 @@ class Graph():
     #function for adding nodes
     def addEdge(self, src, destination, weight):
         if (0 <= src < self.V and 0 < destination < self.V) == True:
-            #edge from source to dest and from dest to source (cuz undirected graph n shit)
+            #edge from  (csource to dest and from dest to sourceuz undirected graph n shit)
             self.graph[src].insert(0, [destination, weight])
             self.graph[destination].insert(0, [src, weight])
 
@@ -115,7 +115,7 @@ class Graph():
         while minHeap.isMinHeap():
             #start finding new paths for the node with smallest path (currently)
             newHeapNode = minHeap.extractMin()
-            heapKey = newHeapNode[0]
+            heapKey = newHeapNode[0] 
 
             for keyCrawled in self.graph[heapKey]:
                 v = keyCrawled[0]
