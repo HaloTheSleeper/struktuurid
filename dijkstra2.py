@@ -58,15 +58,11 @@ class MinHeap():
     def extractMin(self): 
         if self.isMinHeap() is not True:
             return
-
+        
         minNode = self.array[0]
-
-        #move the removed node out of the heap
-        lastNode = self.array[self.size - 1]
-        self.array[0] = lastNode
-
-        self.positions[lastNode[0]] = 0
-        self.positions[minNode[0]] = self.size - 1
+        
+        #move the removed node out of the heap 
+        self.swapNodes(0, self.size - 1)
 
         self.size = self.size - 1
 

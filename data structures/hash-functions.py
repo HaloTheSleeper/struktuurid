@@ -33,8 +33,8 @@ class HashTable:
     
 hTable = HashTable(10)
     
-hTable.set_value(1, 10)
-hTable.set_value(11, 5)
+hTable.set_value("arti", 10)
+hTable.set_value("papa", 5)
 
 hTable.set_value(2, 8)
 

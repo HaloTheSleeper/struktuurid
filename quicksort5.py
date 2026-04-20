@@ -1,10 +1,23 @@
-#quicksort random pivot selecting and using insertion sort when the subarray is shorter than 7 units/spaces
-#work in progress
+#quicksort random pivot selecting and using insertion sort when the subarray is shorter than 4 units/spaces
 import random
 
+def insertionSort(arr, low, high):
+    i = low
+    
+    while (i < high):
+        if (arr[i + 1] < arr[i]):
+            #found smaller element
+            smallerIndex = i + 1
+            
+            while (arr[smallerIndex] < arr[smallerIndex - 1] and smallerIndex > low):
+                (arr[smallerIndex], arr[smallerIndex - 1]) = (arr[smallerIndex - 1], arr[smallerIndex])
+        
+                smallerIndex -= 1
+        
+        i += 1 
+            
 def partition(arr, low, high):
     pivotIndex = random.randrange(low, high)
-    pivot = arr[pivotIndex]
     
     i, j = low - 1, low
     
@@ -24,20 +37,13 @@ def partition(arr, low, high):
     arr[i + 1], arr[pivotIndex] = arr[pivotIndex], arr[i + 1]    
      
     return i + 1     
-    
-    #doesnt change the actual array
-    """   left = [x for x in arr if x < pivot]
-    middle = [x for x in arr if x == pivot]
-    right = [x for x in arr if x > pivot]
-    
-    arr = left + middle + right """
-
-
-
-    
 
 def quicksort(arr, low, high):
     if low >= high:
+        return
+    
+    if (high - low < 4):
+        insertionSort(arr, low, high)
         return
 
     pi = partition(arr, low, high)

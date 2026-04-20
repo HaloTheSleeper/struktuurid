@@ -20,5 +20,5 @@ def canWeMakeItMatch(arr, n):
 
 
 
-arr = [1, 4, 9, 8, 2]
+arr = [3, 4, 1, 8, 2]
 print(canWeMakeItMatch(arr, 13))

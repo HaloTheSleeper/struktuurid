@@ -30,5 +30,5 @@ class Solution:
         return -1
 
 solution = Solution()
-print(solution.strStr("AAAABA", "AAABA"))
+print(solution.strStr("AABAABABA", "ABABA"))
         
